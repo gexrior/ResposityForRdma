@@ -152,6 +152,11 @@ struct Value
     {
         return (strcmp(end_key,y.end_key)<0);
     }
+    bool operator == (const Value &y) const
+    {
+//        return (strcmp(start_key,y.start_key)==0);
+        return (strcmp(end_key,y.end_key)==0);
+    }
     //add:e
 };
 
