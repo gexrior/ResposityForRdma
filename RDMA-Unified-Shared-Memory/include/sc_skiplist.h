@@ -16,6 +16,9 @@ using namespace std;
 struct Key
 {
     char start_key[KEY_LENGTH];
+    //add:xurui
+//    char end_key[KEY_LENGTH];
+    //add:e
 
     Key()
     {
@@ -26,21 +29,31 @@ struct Key
     {
 //        printf("2\n");
         strcpy(start_key,y.start_key);
+        //add:xurui
+//        strcpy(end_key,y.end_key);
+        //add:e
     }
 
     void operator = (const Key &y)
     {
 //        printf("3\n");
         strcpy(start_key,y.start_key);
+        //add:xurui
+//        strcpy(end_key,y.end_key);
+        //add:e
     }
 
     bool operator < (const Key &y)
     {
+//        return (strcmp(start_key,y.start_key)<0);
+        //add:xurui
         return (strcmp(start_key,y.start_key)<0);
+        //add:e
     }
 
     bool operator == (const Key &y)
     {
+//        return (strcmp(start_key,y.start_key)==0);
         return (strcmp(start_key,y.start_key)==0);
     }
 
@@ -134,6 +147,12 @@ struct Value
         oldest_version_index = y.oldest_version_index;
         valid = y.valid;
     }
+    //add:xurui
+    bool operator < (const Value &y)
+    {
+        return (strcmp(end_key,y.end_key)<0);
+    }
+    //add:e
 };
 
 //struct RangeInformation
