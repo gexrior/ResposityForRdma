@@ -159,7 +159,7 @@ bool SkipList<KeyType,DataType>::Insert(const KeyValue& value)
                 cout<<"we had this key."<<endl;
                 if(curr->keyvalue.second == value.second)
                     return false;
-                else if(strcmp(value.second,curr->keyvalue.second) < 0){
+                else if(value.second < curr->keyvalue.second){
                     pre = curr;
                     curr=curr->next[i];
                 }
