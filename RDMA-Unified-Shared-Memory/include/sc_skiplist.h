@@ -148,7 +148,7 @@ struct Value
         valid = y.valid;
     }
     //add:xurui
-    bool operator < (const Value &y)
+    bool operator < (const Value &y) const
     {
         return (strcmp(end_key,y.end_key)<0);
     }
