@@ -37,7 +37,7 @@ class SkipList
         bool Insert(const KeyValue& value);
         int getRandomLevel();
 //        Node* Find(KeyType key) const;
-        Node* Find(const KeyValue& value) const;
+        Node* Find(const KeyValue& value);
         Node* Get(KeyType key) const;
 		//add:xurui
         bool Scan(KeyType start_key, KeyType end_key, vector<Node*> &nodes) const;
@@ -216,7 +216,7 @@ int SkipList<KeyType,DataType>::getRandomLevel()
 }
 
 template<typename KeyType,typename DataType>
-SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(const KeyValue& value) const
+SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(const KeyValue& value)
 {
     Node* pre=head_;
     Node* curr=head_->next[level_-1];
