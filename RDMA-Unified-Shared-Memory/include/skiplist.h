@@ -7,6 +7,7 @@
 #include <vector>
 #include <stdlib.h>
 #include <malloc.h>
+#include <sc_skiplist.h>
 
 using namespace std;
 
@@ -36,7 +37,7 @@ class SkipList
         void clear();
         bool Insert(const KeyValue& value);
         int getRandomLevel();
-        Node* Find(KeyType key,KeyType value) const;
+        Node* Find(KeyType key,Value value) const;
         Node* Get(KeyType key) const;
 		//add:xurui
         bool Scan(KeyType start_key, KeyType end_key, vector<Node*> &nodes) const;
@@ -214,7 +215,7 @@ int SkipList<KeyType,DataType>::getRandomLevel()
 }
 
 template<typename KeyType,typename DataType>
-SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(KeyType key,KeyType value) const
+SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(KeyType key,Value value) const
 {
     Node* pre=head_;
     Node* curr=head_->next[level_-1];
