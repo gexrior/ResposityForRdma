@@ -7,7 +7,7 @@
 #include <vector>
 #include <stdlib.h>
 #include <malloc.h>
-#include <sc_skiplist.h>
+#include "sc_skiplist.h"
 
 using namespace std;
 
