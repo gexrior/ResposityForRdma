@@ -220,18 +220,18 @@ SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(KeyType key) co
     Node* curr=head_->next[level_-1];
     for(int i=level_-1;i>=0;i--)
     {
-//        printf("Find : level_:%d\n",i);
+        printf("Find : level_:%d\n",i);
         while(curr!=NULL)
         {
             if(curr->keyvalue.first<key)
             {
-//                printf("node->next[i]->keyvalue.first<key;\n");
+                printf("node->next[i]->keyvalue.first<key;\n");
                 pre = curr;
                 curr=curr->next[i];
             }
             else if(curr->keyvalue.first==key)
             {
-//                printf("node->next[i]->keyvalue.first==key;\n");
+                printf("node->next[i]->keyvalue.first==key;\n");
                 return curr;
             }
             else
@@ -244,7 +244,7 @@ SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(KeyType key) co
 
         if(curr == NULL && i-1>=0)
         {
-//            printf("curr == NULL,i=%d\n",i);
+            printf("curr == NULL,i=%d\n",i);
             curr = pre->next[i-1];
         }
     }
@@ -324,24 +324,24 @@ SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Get(KeyType key) con
         {
             if(curr->keyvalue.first<key)
             {
-                //printf("node->next[i]->keyvalue.first<key;\n");
+                printf("node->next[i]->keyvalue.first<key;\n");
                 pre = curr;
                 curr=curr->next[i];
             }
             else if(curr->keyvalue.first==key)
             {
-                //printf("node->next[i]->keyvalue.first==key;\n");
+                printf("node->next[i]->keyvalue.first==key;\n");
                 return curr;
             }
             else if(i==0)//?
             {
-                //printf("i == 0;\n");
+                printf("i == 0;\n");
                 return pre;
             }
             else
             {
                 curr=pre->next[i-1];
-                //printf("break;\n");
+                printf("break;\n");
                 break;
             }
         }
@@ -371,12 +371,12 @@ bool SkipList<KeyType,DataType>::Scan(KeyType start_key, KeyType end_key, vector
     node = Get(start_key);
     if(node == NULL)
     {
-        //printf("no find!\n");
+        printf("no find!\n");
         return false;
     }
     else
     {
-        //printf("find!\n");
+        printf("find!\n");
 		//add:xurui
         if(node != head_)
         {
@@ -384,7 +384,7 @@ bool SkipList<KeyType,DataType>::Scan(KeyType start_key, KeyType end_key, vector
         }
 		//add:e
         //printf("1\n");
-    //    printf("size=%d",(int)nodes.size());
+        printf("size=%d",(int)nodes.size());
 
         while(node->next[0]!=NULL)
         {
