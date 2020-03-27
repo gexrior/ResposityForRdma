@@ -40,7 +40,7 @@ bool SC_Skiplist::Insert(RangeInformation* block_list, uint8_t block_num)
             value.valid = true;
             printf("startkey:%s,endkey:%s\n",key.start_key,value.end_key);
             printf("address:%lu,version:%ld\n",value.version_infos[value.latest_version_index-1].address,
-             //       value.version_infos[value.latest_version_index-1].version);
+                    value.version_infos[value.latest_version_index-1].version);
 
 //            printf("8\n");
 //            pair<int,int> test=make_pair(1,1);
