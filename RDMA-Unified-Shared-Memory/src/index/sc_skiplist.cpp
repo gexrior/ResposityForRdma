@@ -24,20 +24,18 @@ bool SC_Skiplist::Insert(RangeInformation* block_list, uint8_t block_num)
         /*key*/
         strcpy(key.start_key,block_list[i].start_key);
         //add:xurui
-        Value value;
-        strcpy(value.end_key,block_list[i].end_key);
-        if(NULL == (node = skiplist_.Find(key,value)))
-        {
+        Key Keyvalue;
+        strcpy(Keyvalue.start_key,block_list[i].end_key);
         //add:e
 
 //        if(NULL == (node = skiplist_.Get(key)))
-    //        if(NULL == (node = skiplist_.Find(key)))
-    //        {
-    //            Value value;
+            if(NULL == (node = skiplist_.Find(key,Keyvalue)))
+            {
+                Value value;
 //            pair<Key,Value> keyvalue;
 
             /*value*/
-    //            strcpy(value.end_key,block_list[i].end_key);
+                strcpy(value.end_key,block_list[i].end_key);
 
             value.version_infos[value.latest_version_index].address = block_list[i].address;
             value.version_infos[value.latest_version_index].version = 1; //version start from 1
