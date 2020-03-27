@@ -36,7 +36,8 @@ class SkipList
         void clear();
         bool Insert(const KeyValue& value);
         int getRandomLevel();
-        Node* Find(KeyType key,KeyType value) const;
+//        Node* Find(KeyType key) const;
+        Node* Find(const KeyValue& value) const;
         Node* Get(KeyType key) const;
 		//add:xurui
         bool Scan(KeyType start_key, KeyType end_key, vector<Node*> &nodes) const;
@@ -214,7 +215,7 @@ int SkipList<KeyType,DataType>::getRandomLevel()
 }
 
 template<typename KeyType,typename DataType>
-SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(KeyType key,KeyType value) const
+SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(const KeyValue& value) const
 {
     Node* pre=head_;
     Node* curr=head_->next[level_-1];
@@ -223,20 +224,20 @@ SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(KeyType key,Key
         printf("Find : level_:%d\n",i);
         while(curr!=NULL)
         {
-            if(curr->keyvalue.first<key)
+            if(curr->keyvalue.first<value.first)
             {
                 printf("node->next[i]->keyvalue.first<key;\n");
                 pre = curr;
                 curr=curr->next[i];
             }
-            else if(curr->keyvalue.first==key)
+            else if(curr->keyvalue.first==value.first)
             {
                 printf("node->next[i]->keyvalue.first==key;\n");
                 //add:xurui
 //                strcpy(value.second,key);
-                if(curr->keyvalue.second == value)
+                if(curr->keyvalue.second == value.second)
                     return curr;
-                else if(value < curr->keyvalue.second){
+                else if(value.second < curr->keyvalue.second){
                     pre = curr;
                     curr=curr->next[i];
                 }
@@ -260,6 +261,53 @@ SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(KeyType key,Key
 
     return NULL;
 }
+//template<typename KeyType,typename DataType>
+//SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(KeyType key) const
+//{
+//    Node* pre=head_;
+//    Node* curr=head_->next[level_-1];
+//    for(int i=level_-1;i>=0;i--)
+//    {
+//        printf("Find : level_:%d\n",i);
+//        while(curr!=NULL)
+//        {
+//            if(curr->keyvalue.first<key)
+//            {
+//                printf("node->next[i]->keyvalue.first<key;\n");
+//                pre = curr;
+//                curr=curr->next[i];
+//            }
+//            else if(curr->keyvalue.first==key)
+//            {
+//                printf("node->next[i]->keyvalue.first==key;\n");
+//                //add:xurui
+////                strcpy(value.second,key);
+//                if(curr->keyvalue.second == value)
+//                    return curr;
+//                else if(value < curr->keyvalue.second){
+//                    pre = curr;
+//                    curr=curr->next[i];
+//                }
+//                //add:e
+////                return curr;
+//            }
+//            else
+//            {
+//                curr=pre->next[i-1];
+////                printf("break;\n");
+//                break;
+//            }
+//        }
+
+//        if(curr == NULL && i-1>=0)
+//        {
+//            printf("curr == NULL,i=%d\n",i);
+//            curr = pre->next[i-1];
+//        }
+//    }
+
+//    return NULL;
+//}
 
 //template<typename KeyType,typename DataType>
 //SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(KeyType key) const

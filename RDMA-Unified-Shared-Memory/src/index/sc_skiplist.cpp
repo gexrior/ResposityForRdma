@@ -24,20 +24,21 @@ bool SC_Skiplist::Insert(RangeInformation* block_list, uint8_t block_num)
         /*key*/
         strcpy(key.start_key,block_list[i].start_key);
         //add:xurui
-        Key fvalue;
-        strcpy(fvalue.start_key,block_list[i].end_key);
-        if(NULL == (node = skiplist_.Find(key,fvalue)))
+        Value value;
+        strcpy(value.end_key,block_list[i].end_key);
+        pair<Key,Value> keyvalue = make_pair(key,value);
+        if(NULL == (node = skiplist_.Find(keyvalue)))
         {
         //add:e
 
 //        if(NULL == (node = skiplist_.Get(key)))
     //            if(NULL == (node = skiplist_.Find(key,Keyvalue)))
     //            {
-                    Value value;
+    //            Value value;
 //            pair<Key,Value> keyvalue;
 
             /*value*/
-                    strcpy(value.end_key,block_list[i].end_key);
+    //            strcpy(value.end_key,block_list[i].end_key);
 
             value.version_infos[value.latest_version_index].address = block_list[i].address;
             value.version_infos[value.latest_version_index].version = 1; //version start from 1
@@ -52,8 +53,9 @@ bool SC_Skiplist::Insert(RangeInformation* block_list, uint8_t block_num)
 //            pair<int,int> test=make_pair(1,1);
 //            printf("9\n");
 //            printf("version=%ld\n",value.version_infos[0].version);
+
             /*insert*/
-            pair<Key,Value> keyvalue = make_pair(key,value);
+//            pair<Key,Value> keyvalue = make_pair(key,value);
 
 
             skiplist_.Insert(keyvalue);
