@@ -235,6 +235,23 @@ bool Client::Read(uint64_t value, uint64_t size, char* start_key, char* end_key)
 }
 
 //test for interface Client::Cover
+bool Cover(sekey sek, char* start_key, char* end_key){
+    for(int i = 0; i < sek.skey.size(); i++){
+//        cout << "se_start_key：" << sek.skey[i] << " ";
+//        cout << "se_end_key：" << sek.ekey[i] << endl;
+        if(sek.skey[i] <= start_key &&  end_key <= sek.ekey[i]){
+//            printf("bingo!\n");
+            return true;
+        }
+    }
+    return false;
+//    if(strcmp(sek.skey,start_key) && strcmp(end_key,sek.ekey)){
+//        printf("bingo!\n");
+//        return true;
+//    }
+//    else
+//        return false;
+}/*
 bool Client::Cover(char* start_key, char* end_key){
     char value[BLOCK_SIZE];
     memset(value,0,BLOCK_SIZE);
@@ -269,7 +286,7 @@ bool Client::Cover(char* start_key, char* end_key){
             return true;
         }
     }
-}
+}*/
 
 int Client::GetNextRow(GeneralRequestBuffer *rec, int i, const DSMRow *&row){
 //    if(Firsttime){

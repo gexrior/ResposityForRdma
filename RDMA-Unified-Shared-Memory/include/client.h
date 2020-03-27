@@ -8,6 +8,14 @@
 #include "global.h"
 
 using namespace std;
+//add:xurui
+struct sekey {
+//    char skey[KEY_LENGTH];
+//    char ekey[KEY_LENGTH];
+    vector<string> skey;
+    vector<string> ekey;
+};
+//add:e
 class Client {
 private:
     Configuration *conf;
