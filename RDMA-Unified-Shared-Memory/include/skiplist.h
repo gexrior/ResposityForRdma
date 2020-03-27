@@ -233,11 +233,13 @@ SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(const KeyValue&
             }
             else if(curr->keyvalue.first==value.first)
             {
-                printf("node->next[i]->keyvalue.first==key;\n");
+
                 //add:xurui
 //                strcpy(value.second,key);
-                if(curr->keyvalue.second == value.second)
+                if(curr->keyvalue.second == value.second){
+                    printf("node->next[i]->keyvalue.first==key;\n");
                     return curr;
+                }
                 else if(value.second < curr->keyvalue.second){
                     pre = curr;
                     curr=curr->next[i];
