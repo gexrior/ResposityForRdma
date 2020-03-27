@@ -241,6 +241,7 @@ SkipListNode<KeyType,DataType>* SkipList<KeyType,DataType>::Find(const KeyValue&
                     return curr;
                 }
                 else if(value.second < curr->keyvalue.second){
+                    printf("curr->keyvalue.first==value.first&&value.second < curr->keyvalue.second\n");
                     pre = curr;
                     curr=curr->next[i];
                 }
