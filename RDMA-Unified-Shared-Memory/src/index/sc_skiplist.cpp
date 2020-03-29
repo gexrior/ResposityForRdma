@@ -103,6 +103,7 @@ int SC_Skiplist::Scan(char* start, char* end, RangeInformation* block_list, uint
     strcpy(end_key.start_key,end);
     //printf("1\n");
     skiplist_.Scan(start_key, end_key, nodes);
+    skiplist_.PrintTable();
     //printf("2\n");
     for(int i=0; i<(int)(nodes.size()); i++)
     {

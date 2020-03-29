@@ -41,6 +41,7 @@ class SkipList
         Node* Get(KeyType key) const;
 		//add:xurui
         bool Scan(KeyType start_key, KeyType end_key, vector<Node*> &nodes) const;
+        void PrintTable();
 		//add:e
         bool Delete(KeyType key);
 //        bool Delete(Range range);
@@ -473,6 +474,25 @@ bool SkipList<KeyType,DataType>::Scan(KeyType start_key, KeyType end_key, vector
     }
 
 }
+//add:e
+template<typename KeyType,typename DataType>
+void SkipList<KeyType,DataType>::PrintTable()
+{
+//    Node* node = NULL;
+    Node* node=head_;
+//    Node* curr=head_->next[level_-1];
+    cout << "PrintTable() start!" << endl;
+    while(node->next[0]!=NULL)
+    {
+//      nodes.push_back(node->next[0]);
+      cout << node->next[0] << " ";
+      node=node->next[0];
+    }
+    cout << "PrintTable() end!" << endl;
+    return;
+}
+//add:xurui
+
 //add:e
 
 template<typename KeyType,typename DataType>
