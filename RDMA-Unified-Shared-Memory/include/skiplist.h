@@ -485,7 +485,9 @@ void SkipList<KeyType,DataType>::PrintTable()
     while(node->next[0]!=NULL)
     {
 //      nodes.push_back(node->next[0]);
-      cout << node->next[0] << " ";
+      cout << node->next[0]->keyvalue.first.start_key << " ";
+      cout << node->next[0]->keyvalue.first.end_key << " ";
+      cout << "| ";
       node=node->next[0];
     }
     cout << "PrintTable() end!" << endl;
