@@ -48,7 +48,7 @@ int main(){
     client->Write((uint64_t)alphavalue,test_size,stk4,enk4);
     client->Write((uint64_t)alphavalue,test_size,stk7,enk7);
 
-//    client->Read((uint64_t)value,test_size,stk1,enk1);
+    client->Read((uint64_t)value,test_size,stk1,enk1);
     if(memcmp(alphavalue, value, test_size) == 0) {
                 printf("read success, the same\n");
     }
