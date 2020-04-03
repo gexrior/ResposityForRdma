@@ -176,7 +176,7 @@ bool SkipList<KeyType,DataType>::Insert(const KeyValue& value)
 //                break;
 //            }
             //add:xurui
-            if(curr->keyvalue.second < value.first){
+            if(curr->keyvalue.first < value.first && curr->keyvalue.second < value.second){
                 pre = curr;
                 curr = curr->next[i];
             }
