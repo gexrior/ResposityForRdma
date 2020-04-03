@@ -151,30 +151,46 @@ bool SkipList<KeyType,DataType>::Insert(const KeyValue& value)
     {
         while(curr!=NULL)
         {
-            if(curr->keyvalue.first < value.first)
-            {
+//            if(curr->keyvalue.first < value.first)
+//            {
+//                pre = curr;
+//                curr=curr->next[i];
+//            }
+//            else if(curr->keyvalue.first == value.first)
+//            {
+////                return false;
+//                //add:xurui
+//                if(curr->keyvalue.second == value.second){
+//                    cout << "We had this key!" << endl;
+//                    return false;
+//                }
+//                else if(value.second < curr->keyvalue.second){
+//                    curr= pre->next[i-1];
+//                    break;
+//                }
+//                //add:e
+//            }
+//            else
+//            {
+//                curr= pre->next[i-1];
+//                break;
+//            }
+            //add:xurui
+            if(curr->keyvalue.second < value.first){
                 pre = curr;
-                curr=curr->next[i];
+                curr = curr->next[i];
             }
-            else if(curr->keyvalue.first == value.first)
-            {
+            else if(curr->keyvalue.first == value.first && curr->keyvalue.second == value.second){
 //                return false;
-                //add:xurui
-                if(curr->keyvalue.second == value.second){
                     cout << "We had this key!" << endl;
                     return false;
-                }
-                else if(value.second < curr->keyvalue.second){
-                    curr= pre->next[i-1];
-                    break;
-                }
-                //add:e
             }
             else
             {
                 curr= pre->next[i-1];
                 break;
             }
+            //add:e
         }
 
         if(curr == NULL and i-1>=0)
