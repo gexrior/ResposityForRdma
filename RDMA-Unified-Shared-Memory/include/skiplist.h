@@ -506,6 +506,7 @@ void SkipList<KeyType,DataType>::PrintTable()
 //      nodes.push_back(node->next[0]);
       cout << node->next[0]->keyvalue.first.start_key << " ";
       cout << node->next[0]->keyvalue.second.end_key << " ";
+      cout << "level:" << level_ <<" ";
       cout << "| ";
       node=node->next[0];
     }

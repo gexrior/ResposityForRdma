@@ -23,18 +23,32 @@ int main(){
     clock_t start, end;
     Client *client = new Client();
 
-    char* stk1 = "18095719093105568245441835267100129692794024880627173356073905a";
-    char* enk1 = "18095719093105568245441835267100129692794024880627173356073905c";
-    char* stk2 = "18095719093105568245441835267100129692794024880627173356073905a";
-    char* enk2 = "18095719093105568245441835267100129692794024880627173356073905b";
-    char* stk3 = "38624920731302877866034157046729513925901353531419214949665430a";
-    char* enk3 = "38624920731302877866034157046729513925901353531419214949665430b";
+    //origin
+    char* stk1 = "5f";
+    char* enk1 = "5m";
+    //=origin
+    char* stk2 = "5f";
+    char* enk2 = "5m";
+    // 5f < 5g-5i <=5m
+    char* stk3 = "5g";
+    char* enk3 = "5m";
+    //5f < 5g-5h < 5m
+    char* stk4 = "5j";
+    char* enk4 = "5k";
+    //5f <= 5f-5h < 5m
+    char* stk6 = "5f";
+    char* enk6 = "5l";
+    //5a-5e < 5f-5m
+    char* stk7 = "5a";
+    char* enk7 = "5e";
 
     client->Write((uint64_t)alphavalue,test_size,stk1,enk1);
     client->Write((uint64_t)alphavalue,test_size,stk2,enk2);
     client->Write((uint64_t)alphavalue,test_size,stk3,enk3);
+    client->Write((uint64_t)alphavalue,test_size,stk4,enk4);
+    client->Write((uint64_t)alphavalue,test_size,stk7,enk7);
 
-    client->Read((uint64_t)value,test_size,stk1,enk1);
+//    client->Read((uint64_t)value,test_size,stk1,enk1);
     if(memcmp(alphavalue, value, test_size) == 0) {
                 printf("read success, the same\n");
     }
