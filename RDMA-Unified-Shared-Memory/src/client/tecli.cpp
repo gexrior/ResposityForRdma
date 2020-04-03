@@ -29,13 +29,13 @@ int main(){
     //=origin
     char* stk2 = "5f";
     char* enk2 = "5m";
-    // 5f < 5g-5i <=5m
+    // 5f < 5g-5m <=5m
     char* stk3 = "5g";
     char* enk3 = "5m";
-    //5f < 5g-5h < 5m
+    //5f < 5j-5k < 5m
     char* stk4 = "5j";
     char* enk4 = "5k";
-    //5f <= 5f-5h < 5m
+    //5f <= 5f-5l < 5m
     char* stk6 = "5f";
     char* enk6 = "5l";
     //5a-5e < 5f-5m
@@ -43,10 +43,11 @@ int main(){
     char* enk7 = "5e";
 
     client->Write((uint64_t)alphavalue,test_size,stk1,enk1);
-    client->Write((uint64_t)alphavalue,test_size,stk2,enk2);
-    client->Write((uint64_t)alphavalue,test_size,stk3,enk3);
-    client->Write((uint64_t)alphavalue,test_size,stk4,enk4);
-    client->Write((uint64_t)alphavalue,test_size,stk7,enk7);
+//    client->Write((uint64_t)alphavalue,test_size,stk2,enk2);
+//    client->Write((uint64_t)alphavalue,test_size,stk3,enk3);
+//    client->Write((uint64_t)alphavalue,test_size,stk4,enk4);
+      client->Write((uint64_t)alphavalue,test_size,stk6,enk6);
+//    client->Write((uint64_t)alphavalue,test_size,stk7,enk7);
 
     client->Read((uint64_t)value,test_size,stk1,enk1);
     if(memcmp(alphavalue, value, test_size) == 0) {
