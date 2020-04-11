@@ -166,8 +166,10 @@ void Server::ProcessRequest(GeneralRequestBuffer *send, uint16_t NodeID, uint16_
         case MESSAGE_SCAN:
         {
             //printf("Scan\n");
-            printf("Read:%c\n",send->range[0].start_key[0]);
-            printf("Read:%c\n",send->range[0].end_key[0]);
+//            printf("Read:%c\n",send->range[0].start_key[0]);
+//            printf("Read:%c\n",send->range[0].end_key[0]);
+            cout << send->range[0].start_key[0] << " ";
+            cout << send->range[0].end_key[0] << endl;
             recv->flag = skiplist->Scan(send->range[0].start_key,
                                                   send->range[0].end_key,
                                                   recv->range,
