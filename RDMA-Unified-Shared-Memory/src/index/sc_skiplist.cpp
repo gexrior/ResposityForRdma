@@ -114,7 +114,10 @@ int SC_Skiplist::Scan(char* start, char* end, RangeInformation* block_list, uint
             strcpy(block_list[i].start_key,nodes[i]->keyvalue.first.start_key);
             strcpy(block_list[i].end_key,nodes[i]->keyvalue.second.end_key);
             //
-            cout << "nodes[i]->keyvalue.second.end_key"<<nodes[i]->keyvalue.second.end_key<< endl;
+            cout<<"nodes[i]->keyvalue.first.start_key"<<nodes[i]->keyvalue.first.start_key<<endl;
+            cout<<"block_list[i].start_key"<<block_list[i].start_key<<endl;
+            cout<<"block_list[i].end_key"<<block_list[i].end_key;
+//            cout << "nodes[i]->keyvalue.second.end_key"<<nodes[i]->keyvalue.second.end_key<< endl;
 
             block_list[i].address = nodes[i]->keyvalue.second.version_infos[latest_index-1].address;
             block_list[i].version = latest_index;
