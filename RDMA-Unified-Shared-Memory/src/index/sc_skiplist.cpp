@@ -40,14 +40,23 @@ bool SC_Skiplist::Insert(RangeInformation* block_list, uint8_t block_num)
             /*value*/
     //            strcpy(value.end_key,block_list[i].end_key);
 
-            value.version_infos[value.latest_version_index].address = block_list[i].address;
-            value.version_infos[value.latest_version_index].version = 1; //version start from 1
-            value.latest_version_index++;
-            value.version_count++;
-            value.valid = true;
-            printf("startkey:%s,endkey:%s\n",key.start_key,value.end_key);
-            printf("address:%lu,version:%ld\n",value.version_infos[value.latest_version_index-1].address,
-                    value.version_infos[value.latest_version_index-1].version);
+//            value.version_infos[value.latest_version_index].address = block_list[i].address;
+//            value.version_infos[value.latest_version_index].version = 1; //version start from 1
+//            value.latest_version_index++;
+//            value.version_count++;
+//            value.valid = true;
+            keyvalue.second.version_infos[value.latest_version_index].address = block_list[i].address;
+            keyvalue.second.version_infos[value.latest_version_index].version = 1; //version start from 1
+            keyvalue.second.latest_version_index++;
+            keyvalue.second.version_count++;
+            keyvalue.second.valid = true;
+
+//            printf("startkey:%s,endkey:%s\n",key.start_key,value.end_key);
+//            printf("address:%lu,version:%ld\n",value.version_infos[value.latest_version_index-1].address,
+//                    value.version_infos[value.latest_version_index-1].version);
+            printf("startkey:%s,endkey:%s\n",keyvalue.first.start_key,keyvalue.second.end_key);
+            printf("address:%lu,version:%ld\n",keyvalue.second.version_infos[keyvalue.second.latest_version_index-1].address,
+                    keyvalue.second.version_infos[keyvalue.second.latest_version_index-1].version);
 
 //            printf("8\n");
 //            pair<int,int> test=make_pair(1,1);
@@ -123,7 +132,6 @@ int SC_Skiplist::Scan(char* start, char* end, RangeInformation* block_list, uint
             block_list[i].version = latest_index;
             //printaddr
             cout <<"nodes[i]->keyvalue.second.version_infos[latest_index-1].address"<<nodes[i]->keyvalue.second.version_infos[latest_index-1].address<<endl;
-            cout<<"nodes[i]->keyvalue.second.end_key.version_infos[latest_index-1].address"<<nodes[i]->keyvalue.second.version_infos[latest_index-1].address<<endl;
             cout << "block_list[i].address" << block_list[i].address <<endl;
 
             /*จน1*/
