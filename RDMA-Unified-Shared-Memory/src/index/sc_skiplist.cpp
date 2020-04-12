@@ -115,6 +115,8 @@ int SC_Skiplist::Scan(char* start, char* end, RangeInformation* block_list, uint
             strcpy(block_list[i].end_key,nodes[i]->keyvalue.second.end_key);
             block_list[i].address = nodes[i]->keyvalue.second.version_infos[latest_index-1].address;
             block_list[i].version = latest_index;
+            //printaddr
+            cout << "block_list[i].address" << block_list[i].address <<endl;
 
             /*จน1*/
             nodes[i]->keyvalue.second.version_infos[latest_index-1].ref_count++;
